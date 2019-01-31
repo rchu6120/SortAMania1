@@ -1,19 +1,28 @@
-//Implement this abstract class in your own class in this project.
-//Name your class Team#SortCompetition.
-//e.g. Team 1 should name their class Team1SortCompetition
-public abstract class Team0SortCompetition {
-	
-	public abstract int challengeOne(int[] arr);
+public class Team0SortCompetition extends SortCompetition {
 
-	public abstract int challengeTwo(String[] arr, String query);
+    public int challengeOne(int[] arr) {
+        int n = arr.length;
+        int[] temp = new int[n];
+        mergeSortHelper(arr, 0, n - 1, temp);
+    }
 
-	public abstract int challengeThree(int[] arr);
+    public int challengeTwo(String[] arr, String query) {
 
-	public abstract int challengeFour(int[][] arr);
+    }
 
-	public abstract int challengeFive(Comparable[] arr, Comparable query);
+    public int challengeThree(int[] arr) {
 
-	//Add a custom greeting so your sorter can introduce itself
-	public abstract String greeting();
+    }
+
+    public int challengeFour(int[][] arr) {
+
+    }
+
+    public int challengeFive(Comparable[] arr, Comparable query) {
+
+    }
+
+    public String greeting() {
+
+    }
 }
-
