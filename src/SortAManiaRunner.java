@@ -15,5 +15,18 @@ public class SortAManiaRunner {
 
         System.out.println("Sorted");
         printArr(randIntArr); //check if the array was sorted correctly
+        
+        String[] randStringArr = Team0SortCompetition.randomStringArr(100, 5); //init a random string array
+
+        System.out.println("Unsorted");
+        Team0SortCompetition.printArr(randStringArr); //print out the unsorted array
+
+        long time = System.nanoTime(); //start the timer
+        int median = team0.challengeTwo(randStringArr,""); //run your challenge one code
+        time = System.nanoTime() - time; //stop the timer
+        System.out.println("Challenge Two Time Taken: " + time * 0.001 + " Seconds"); //print the time
+
+        System.out.println("Sorted");
+        Team0SortCompetition.printArr(randStringArr); //check if the array was sorted correctly
     }
 }
