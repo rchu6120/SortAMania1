@@ -85,4 +85,42 @@ public class Team0SortCompetition extends SortCompetition {
         }
         return "Your sorted array is: " + arr + "\n" + "The median is " + median + ".";
     }
+    
+    public static String[] randomStringArr(int num, int length){
+        String[] arr = new String[num];
+        while (num > 0) {
+            int i = 0;
+            String s = "";
+            while(i < length){
+                char c= (char)((Math.random()*26)+97);
+                s = s+c;
+                i++;
+            }
+            num--;
+            arr[num] = s;
+        }
+        return arr;
+    }
+
+    public static void insertionSort(String[] list1){
+        for(int i = 1; i < list1.length; i++){
+            String temp = list1[i];
+            int j =i-1;
+            while(j>=0 && list1[j].compareTo(temp) > 0){
+                list1[j+1] = list1[j];
+                j--;
+            }
+            list1[j+1] = temp;
+
+        }
+    }
+    
+
+    public static void printArr(String[] arr){
+        String total = "";
+        for(int i = 0; i < arr.length; i++){
+            total += arr[i] + ", ";
+        }
+        System.out.println(total);
+    }
 }
