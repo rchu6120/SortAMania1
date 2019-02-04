@@ -12,11 +12,13 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeTwo(String[] arr, String query) {
+        // selection sort?
         return 0;
     }
 
     @Override
     public int challengeThree(int[] arr) {
+        // use insertion sort
         return 0;
     }
 
@@ -131,5 +133,39 @@ public class Team0SortCompetition extends SortCompetition {
             total += arr[i] + ", ";
         }
         System.out.println(total);
+    }
+    
+    public static int binarySearch(String[] elements, String target){
+        
+        int left = 0;
+        int right = elements.length-1;
+        while(left <= right){
+            int middle = (left+right)/2;
+            if (target.compareTo(elements[middle]) < 0){
+                right = middle - 1;
+            }
+            else if(target.compareTo(elements[middle]) > 0){
+                left = middle + 1;
+            }
+            else {
+                return middle;
+            }
+        }
+        return -1;
+    }
+    
+    public static String insertionSort(int[] a){
+        int num = a.length; 
+        for (int i = 0; i < n-1; i++) 
+        { 
+            int min = i; 
+            for (int j = i+1; j < n; j++) 
+                if (a[j].compareTo(a[min]) < 0) 
+                    min = j; 
+            
+            int temp = a[min]; 
+            a[min] = a[i]; 
+            a[i] = temp; 
+        } 
     }
 }
