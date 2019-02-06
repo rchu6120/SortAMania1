@@ -7,7 +7,7 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeOne(int[] arr) {
-        return 0;
+        mergeSort(arr);
     }
 
     @Override
@@ -43,20 +43,20 @@ public class Team0SortCompetition extends SortCompetition {
         mergeSortHelper(arr, 0, n - 1, temp);
     }
 
-    public void mergeSortHelper(int[] arr, int left, int right, int[] temp) {
-        if (left < right) {
-            int mid = (left + right)/2;
-            mergeSortHelper(arr, left, mid, temp);
-            mergeSortHelper(arr, mid + 1, right, temp);
-            merge(arr, left, mid, right, temp);
+    public static void mergeSortHelper(int[] arr, int from, int to, int[] temp) {
+        if (from < to) {
+            int mid = (from + to) / 2;
+            mergeSortHelper(arr, from, mid, temp);
+            mergeSortHelper(arr, mid + 1, to, temp);
+            merge(arr, from, mid, to, temp);
         }
     }
 
-    public void merge(int[] arr, int left, int mid, int right, int[] temp) {
-        int i = left;
+    public static void merge(int[] arr, int from, int mid, int to, int[] temp) {
+        int i = from;
         int j = mid + 1;
-        int k = right;
-        while (i <= mid && j <= right) {
+        int k = to;
+        while (i <= mid && j <= to) {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];
                 i++;
@@ -72,12 +72,12 @@ public class Team0SortCompetition extends SortCompetition {
             i++;
             k++;
         }
-        while (j <= right) {
+        while (j <= to) {
             temp[k] = arr[j];
             j++;
             k++;
         }
-        for (k = left; k <= right; k++) {
+        for (k = from; k <= from; k++) {
             arr[k] = temp[k];
         }
     }
@@ -154,18 +154,29 @@ public class Team0SortCompetition extends SortCompetition {
         return -1;
     }
     
-    public static String insertionSort(int[] a){
+    public static void selectionSort(String[] a){
         int num = a.length; 
-        for (int i = 0; i < n-1; i++) 
+        for (int i = 0; i < num - 1; i++)
         { 
             int min = i; 
-            for (int j = i+1; j < n; j++) 
+            for (int j = i+1; j < num; j++)
                 if (a[j].compareTo(a[min]) < 0) 
                     min = j; 
             
-            int temp = a[min]; 
+            String temp = a[min];
             a[min] = a[i]; 
             a[i] = temp; 
         } 
     }
+
+    public int median(int[] arr) {
+        int middle = arr.length/2;
+        if(arr.length % 2 == 1) {
+            return arr[middle];
+        }
+        else {
+            return (arr[middle] + arr[middle + 1])/2;
+        }
+    }
+  }
 }
