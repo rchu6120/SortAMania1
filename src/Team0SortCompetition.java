@@ -12,14 +12,14 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeTwo(String[] arr, String query) {
-        // selection sort?
-        return 0;
+        selectionsort(arr);
+        return binarysearch(arr, query);
     }
 
     @Override
     public int challengeThree(int[] arr) {
-        // use insertion sort
-        return 0;
+        insertionSort(arr)
+        return median(arr);
     }
 
     @Override
