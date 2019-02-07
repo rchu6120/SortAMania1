@@ -9,7 +9,7 @@ public class SortAManiaRunner {
         Team0SortCompetition.printArr(randIntArr); //print out the unsorted array
 
         long time = System.currentTimeMillis(); //start the timer
-        team0.challengeOne(randIntArr); //run your challenge one code
+        int median = team0.challengeOne(randIntArr); //run your challenge one code
         time = System.currentTimeMillis() - time; //stop the timer
         System.out.println("Sorted");
         Team0SortCompetition.printArr(randIntArr); //check if the array was sorted correctly

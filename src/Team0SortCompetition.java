@@ -8,17 +8,18 @@ public class Team0SortCompetition extends SortCompetition {
     @Override
     public int challengeOne(int[] arr) {
         mergeSort(arr);
+        return median(arr);
     }
 
     @Override
     public int challengeTwo(String[] arr, String query) {
-        selectionsort(arr);
-        return binarysearch(arr, query);
+        selectionSort(arr);
+        return binarySearch(arr, query);
     }
 
     @Override
     public int challengeThree(int[] arr) {
-        insertionSort(arr)
+        insertionSort(arr);
         return median(arr);
     }
 
@@ -37,7 +38,8 @@ public class Team0SortCompetition extends SortCompetition {
         return "We are team zero!";
     }
 
-    public void mergeSort(int[] arr) {
+    //Challenge One Code
+    public static void mergeSort(int[] arr) {
         int n = arr.length;
         int[] temp = new int[n];
         mergeSortHelper(arr, 0, n - 1, temp);
@@ -82,6 +84,78 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
+    //Challenge Two Code
+    public static void selectionSort(String[] a){
+        int num = a.length;
+        for (int i = 0; i < num - 1; i++) {
+            int min = i;
+            for (int j = i+1; j < num; j++)
+                if (a[j].compareTo(a[min]) < 0) {
+                    min = j;
+                }
+            String temp = a[min];
+            a[min] = a[i];
+            a[i] = temp;
+        }
+    }
+
+    public static int binarySearch(String[] elements, String target){
+        int left = 0;
+        int right = elements.length-1;
+        while(left <= right){
+            int middle = (left+right)/2;
+            if (target.compareTo(elements[middle]) < 0){
+                right = middle - 1;
+            }
+            else if(target.compareTo(elements[middle]) > 0){
+                left = middle + 1;
+            }
+            else {
+                return middle;
+            }
+        }
+        return -1;
+    }
+
+    //Challenge Three Code
+    public static void insertionSort(int[] list1) {
+        for(int i = 1; i < list1.length; i++) {
+            int temp = list1[i];
+            int j = i-1;
+            while (j >= 0 && list1[j].compareTo(temp) > 0) {
+                list1[j+1] = list1[j];
+                j--;
+            }
+            list1[j+1] = temp;
+        }
+    }
+
+    public static void swap(int[] list1, int i, int j) {
+        int temp = list1[i];
+        list1[i] = list1[j];
+        list1[j] = temp;
+    }
+
+    public static void insertionSort(int[] list1) {
+        for(int i = 0; i < list1.length; i++) {
+            for(int j = 1; j > 0; j--) {
+                if (list1[j] < list1[j-1]) {
+                    swap(list1, j, j-1);
+                }
+                else {
+                    j = 0;
+                }
+            }
+        }
+    }
+
+    //Challenge Four Code
+    public static void bubble(int[][] arr) {
+
+    }
+    //Challenge Five Code
+
+    //Helper Methods
     public static int[] randomIntsArr(int count) {
         int[] randomArr = new int[count];
         for (int i = 0; i < randomArr.length; i++) {
@@ -89,7 +163,6 @@ public class Team0SortCompetition extends SortCompetition {
         }
         return randomArr;
     }
-
 
     public static String[] randomStringArr(int num, int length){
         String[] arr = new String[num];
@@ -107,19 +180,6 @@ public class Team0SortCompetition extends SortCompetition {
         return arr;
     }
 
-    public static void insertionSort(String[] list1){
-        for(int i = 1; i < list1.length; i++){
-            String temp = list1[i];
-            int j =i-1;
-            while(j>=0 && list1[j].compareTo(temp) > 0){
-                list1[j+1] = list1[j];
-                j--;
-            }
-            list1[j+1] = temp;
-
-        }
-    }
-
     public static void printArr(int[] arr) {
         for (int num: arr) {
             System.out.print(num + ", ");
@@ -134,43 +194,9 @@ public class Team0SortCompetition extends SortCompetition {
         }
         System.out.println(total);
     }
-    
-    public static int binarySearch(String[] elements, String target){
-        
-        int left = 0;
-        int right = elements.length-1;
-        while(left <= right){
-            int middle = (left+right)/2;
-            if (target.compareTo(elements[middle]) < 0){
-                right = middle - 1;
-            }
-            else if(target.compareTo(elements[middle]) > 0){
-                left = middle + 1;
-            }
-            else {
-                return middle;
-            }
-        }
-        return -1;
-    }
-    
-    public static void selectionSort(String[] a){
-        int num = a.length; 
-        for (int i = 0; i < num - 1; i++)
-        { 
-            int min = i; 
-            for (int j = i+1; j < num; j++)
-                if (a[j].compareTo(a[min]) < 0) 
-                    min = j; 
-            
-            String temp = a[min];
-            a[min] = a[i]; 
-            a[i] = temp; 
-        } 
-    }
 
     public int median(int[] arr) {
-        int middle = arr.length/2;
+        int middle = arr.length / 2;
         if(arr.length % 2 == 1) {
             return arr[middle];
         }
@@ -178,5 +204,26 @@ public class Team0SortCompetition extends SortCompetition {
             return (arr[middle] + arr[middle + 1])/2;
         }
     }
-  }
+
+    public class Thingy implements Comparable<Thingy> {
+        private int value;
+        public Thingy() {
+            this.value = (int) (Math.random() * 10000);
+        }
+
+        @Override
+        public int compareTo(Thingy other) {
+            return this.value - other.value;
+        }
+    }
+
+    public Thingy[] randomThingArr(int num) {
+        Thingy[] things = new Thingy[num];
+        for (int i = 0; i < num; i++) {
+            things[i] = new Thingy();
+        }
+        return things;
+    }
+
 }
+
