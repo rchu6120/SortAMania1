@@ -161,6 +161,14 @@ public class Team0SortCompetition extends SortCompetition {
         return arr;
     }
 
+    public static int[] mostlySortedBigArray(int num, int[] arr) {
+        arr[0] = (int)(Math.random () * 10) + 1;
+        for (int a = 1; a < arr.length; a++) {
+            arr[a] = arr[a-1] + (int)(Math.random() * 12) - 2;
+        }
+        return arr;
+    }
+
     public static void printArr(int[] arr) {
         for (int num: arr) {
             System.out.print(num + ", ");
@@ -184,15 +192,6 @@ public class Team0SortCompetition extends SortCompetition {
         else {
             return (arr[middle] + arr[middle + 1]) / 2;
         }
-    }
-
-    public static int[] mostlySortedBigArray() {
-        int [] array = new int[100000];
-        array[0] = (int)(Math.random () * 10) + 1;
-        for (int a = 1; a < array.length; a++) {
-            array[a] = array[a-1] + (int)(Math.random() * 12) - 2;
-        }
-        return array;
     }
 
 }
