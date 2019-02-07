@@ -1,10 +1,11 @@
-public class thejuice {
-    private int value;
+public class thejuice implements Comparable<thejuice> {
+
+    public int howmuchjuice;
     public thejuice() {
-        this.value = (int) (Math.random() * 10000)+1;
+        this.howmuchjuice = (int) (Math.random() * 10000)+1;
     }
     public int compareTo(thejuice other) {
-        return this.value - other.value;
+        return this.howmuchjuice - other.howmuchjuice;
     }
 }
 
