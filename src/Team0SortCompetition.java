@@ -134,7 +134,41 @@ public class Team0SortCompetition extends SortCompetition {
     //Challenge Four Code
 
     //Challenge Five Code
+    public static int partition (thejuice[] a, int min, int max)
+    {
+        thejuice pivot = a[max];
+        int i = (min - 1);
 
+        for (int j = min; j <= max- 1; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (a[j].compareTo(pivot) <= 0)
+            {
+                i++;    // increment index of smaller element
+                thejuice temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+        thejuice t2 = a[i + 1];
+        a[max] = a[i+1];
+        a[i+1] = t2;
+
+        return (i + 1);
+    }
+
+    public static void quickSort(thejuice a[], int low, int high)
+    {
+        if (low < high)
+        {
+            int p = partition(a, low, high);
+
+            quickSort(a, low, p - 1);
+            quickSort(a, p + 1, high);
+        }
+    }
     //Helper Methods
     public static int[] randomIntsArr(int count) {
         int[] randomArr = new int[count];
@@ -183,6 +217,14 @@ public class Team0SortCompetition extends SortCompetition {
         }
         System.out.println(total);
     }
+    
+    public static void printArr(thejuice[] arr){
+        String total = "";
+        for(int i = 0; i < arr.length; i++){
+            total += "j"+i+": "+arr[i].howmuchjuice + ", ";
+        }
+        System.out.println(total);
+    }
 
     public int median(int[] arr) {
         int middle = arr.length / 2;
@@ -193,6 +235,12 @@ public class Team0SortCompetition extends SortCompetition {
             return (arr[middle] + arr[middle + 1]) / 2;
         }
     }
-
+    public static thejuice[] randomJuiceArr(int num){
+        thejuice[] thejuices = new thejuice[num];
+        for (int i = 0; i < num; i++){
+            thejuices[i] = new thejuice();
+        }
+        return thejuices;
+    }
 }
 
