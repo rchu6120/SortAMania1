@@ -57,7 +57,7 @@ public class Team0SortCompetition extends SortCompetition {
     public static void merge(int[] arr, int from, int mid, int to, int[] temp) {
         int i = from;
         int j = mid + 1;
-        int k = to;
+        int k = from;
         while (i <= mid && j <= to) {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];
@@ -65,7 +65,7 @@ public class Team0SortCompetition extends SortCompetition {
             }
             else {
                 temp[k] = arr[j];
-                i++;
+                j++;
             }
             k++;
         }
@@ -79,7 +79,7 @@ public class Team0SortCompetition extends SortCompetition {
             j++;
             k++;
         }
-        for (k = from; k <= from; k++) {
+        for (k = from; k <= to; k++) {
             arr[k] = temp[k];
         }
     }
@@ -118,34 +118,21 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Three Code
-    public static void insertionSort(int[] list1) {
-        for(int i = 1; i < list1.length; i++) {
-            int temp = list1[i];
+
+
+    public static void insertionSort(int[] a) {
+        int num = a.length;
+        for (int i=1; i<num; ++i)
+        {
+            int max = a[i];
             int j = i-1;
-            while (j >= 0 && list1[j].compareTo(temp) > 0) {
-                list1[j+1] = list1[j];
-                j--;
-            }
-            list1[j+1] = temp;
-        }
-    }
 
-    public static void swap(int[] list1, int i, int j) {
-        int temp = list1[i];
-        list1[i] = list1[j];
-        list1[j] = temp;
-    }
-
-    public static void insertionSort(int[] list1) {
-        for(int i = 0; i < list1.length; i++) {
-            for(int j = 1; j > 0; j--) {
-                if (list1[j] < list1[j-1]) {
-                    swap(list1, j, j-1);
-                }
-                else {
-                    j = 0;
-                }
+            while (j>=0 && a[j] > max)
+            {
+                a[j+1] = a[j];
+                j = j-1;
             }
+            a[j+1] = max;
         }
     }
 
@@ -177,6 +164,7 @@ public class Team0SortCompetition extends SortCompetition {
             num--;
             arr[num] = s;
         }
+        arr[0] = "asdf";
         return arr;
     }
 
@@ -205,25 +193,18 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
-    public class Thingy implements Comparable<Thingy> {
-        private int value;
-        public Thingy() {
-            this.value = (int) (Math.random() * 10000);
+    public static int[] mostlySorted(){
+        int [] array = new int[100];    // Almost sorted Array of 100
+
+        array[0] = (int)(Math.random () * 10) + 1;
+
+        for (int a = 1; a < array.length; a++) {
+            array[a] = array[a-1] + (int)(Math.random() * 12) - 2;
         }
 
-        @Override
-        public int compareTo(Thingy other) {
-            return this.value - other.value;
-        }
+        return array;
     }
 
-    public Thingy[] randomThingArr(int num) {
-        Thingy[] things = new Thingy[num];
-        for (int i = 0; i < num; i++) {
-            things[i] = new Thingy();
-        }
-        return things;
-    }
 
 }
 
