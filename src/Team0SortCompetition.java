@@ -102,12 +102,12 @@ public class Team0SortCompetition extends SortCompetition {
     public static int binarySearch(String[] elements, String target){
         int left = 0;
         int right = elements.length-1;
-        while(left <= right){
+        while (left <= right){
             int middle = (left+right)/2;
             if (target.compareTo(elements[middle]) < 0){
                 right = middle - 1;
             }
-            else if(target.compareTo(elements[middle]) > 0){
+            else if (target.compareTo(elements[middle]) > 0){
                 left = middle + 1;
             }
             else {
@@ -118,17 +118,12 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Three Code
-
-
     public static void insertionSort(int[] a) {
         int num = a.length;
-        for (int i=1; i<num; ++i)
-        {
+        for (int i=1; i < num; ++i) {
             int max = a[i];
             int j = i-1;
-
-            while (j>=0 && a[j] > max)
-            {
+            while (j >= 0 && a[j] > max) {
                 a[j+1] = a[j];
                 j = j-1;
             }
@@ -137,9 +132,7 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Four Code
-    public static void bubble(int[][] arr) {
 
-    }
     //Challenge Five Code
 
     //Helper Methods
@@ -185,26 +178,22 @@ public class Team0SortCompetition extends SortCompetition {
 
     public int median(int[] arr) {
         int middle = arr.length / 2;
-        if(arr.length % 2 == 1) {
+        if (arr.length % 2 == 1) {
             return arr[middle];
         }
         else {
-            return (arr[middle] + arr[middle + 1])/2;
+            return (arr[middle] + arr[middle + 1]) / 2;
         }
     }
 
-    public static int[] mostlySorted(){
-        int [] array = new int[100];    // Almost sorted Array of 100
-
+    public static int[] mostlySortedBigArray() {
+        int [] array = new int[100000];
         array[0] = (int)(Math.random () * 10) + 1;
-
         for (int a = 1; a < array.length; a++) {
             array[a] = array[a-1] + (int)(Math.random() * 12) - 2;
         }
-
         return array;
     }
-
 
 }
 
