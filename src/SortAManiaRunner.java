@@ -20,6 +20,10 @@ public class SortAManiaRunner {
         System.out.println("Median equals: " + median); //print the median you found
         System.out.println();
 
+
+
+
+
         System.out.println("Challenge Two");
         System.out.println("Unsorted");
         Team0SortCompetition.printArr(randStringArr); //print out the unsorted array
@@ -33,6 +37,11 @@ public class SortAManiaRunner {
         System.out.println("Challenge Two Time Taken: " + time * 0.001 + " Seconds"); //print the time
         System.out.println("Index: " + index);
         System.out.println();
+
+
+
+
+
 
         System.out.println("Challenge Three");
         System.out.println("Unsorted");
@@ -48,12 +57,16 @@ public class SortAManiaRunner {
         System.out.println("Median equals: " + median1); //print the median you found
         System.out.println();
 
+
+
+
+
         System.out.println("Challenge Four");
         System.out.println("Unsorted");
         Team0SortCompetition.printArr(randIntArr); //print out the unsorted array
 
         time = System.currentTimeMillis(); //start the timer
-        int median2 = team0.challengeOne(randIntArr); //run your challenge one code
+        int median2 = team0.challengeOne(randIntArr); //run your challenge four code
         time = System.currentTimeMillis() - time; //stop the timer
         System.out.println("Sorted");
         Team0SortCompetition.printArr(randIntArr); //check if the array was sorted correctly
@@ -62,12 +75,16 @@ public class SortAManiaRunner {
         System.out.println("Median equals: " + median2); //print the median you found
         System.out.println();
 
+
+
+
+
         System.out.println("Challenge Five");
         System.out.println("Unsorted");
         Team0SortCompetition.printArr(thejuices); //print out the unsorted array
-
+        thejuice lookforjuice = thejuices[(int) Math.random()*thejuices.length];
         time = System.currentTimeMillis(); //start the timer
-        System.out.println(": " + team0.challengeThree(mostlySorted)); //run your challenge two code
+        System.out.println("Looking for "+lookforjuice.howmuchjuice +" juice level: "+ team0.challengeFive(thejuices, lookforjuice)); //run your challenge five code
         time = System.currentTimeMillis() - time; //stop the timer
         System.out.println("Sorted");
         Team0SortCompetition.printArr(thejuices); //check if the array was sorted correctly
