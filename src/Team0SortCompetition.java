@@ -120,7 +120,7 @@ public class Team0SortCompetition extends SortCompetition {
     //Challenge Three Code
     public static void insertionSort(int[] a) {
         int num = a.length;
-        for (int i=1; i < num; ++i) {
+        for (int i = 1; i < num; ++i) {
             int max = a[i];
             int j = i-1;
             while (j >= 0 && a[j] > max) {
@@ -132,26 +132,38 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Four Code
+    public static void multiDimensionalArr(int[][] arr) {
+        int[][] arr1 = new int[arr.length][];
+        for (int i = 0; i < arr.length; i++) {
+            arr1[i] = new int[arr[i].length];
+            for (int j = 0; j < arr[i].length; j++) {
+                arr1[i][j] = arr[i][j];
+            }
+        }
+        for (int row = 0; row < arr1.length; row++) {
+            for (int column = 0; column < arr1[row].length; column++) {
+                mergeSort(arr1[row]);
+            }
+        }
+    }
 
     //Challenge Five Code
-    public static int partition (thejuice[] a, int min, int max)
+    public static int partition(thejuice[] a, int min, int max)
     {
         thejuice pivot = a[max];
         int i = (min - 1);
 
         for (int j = min; j <= max- 1; j++)
         {
-            // If current element is smaller than or
-            // equal to pivot
+            // If current element is smaller than or equal to pivot
             if (a[j].compareTo(pivot) <= 0)
             {
-                i++;    // increment index of smaller element
+                i++; // increment index of smaller element
                 thejuice temp = a[i];
                 a[i] = a[j];
                 a[j] = temp;
             }
         }
-
         thejuice t2 = a[i + 1];
         a[max] = a[i+1];
         a[i+1] = t2;
@@ -169,6 +181,7 @@ public class Team0SortCompetition extends SortCompetition {
             quickSort(a, p + 1, high);
         }
     }
+
     //Helper Methods
     public static int[] randomIntsArr(int count) {
         int[] randomArr = new int[count];
@@ -195,7 +208,8 @@ public class Team0SortCompetition extends SortCompetition {
         return arr;
     }
 
-    public static int[] mostlySortedBigArray(int num, int[] arr) {
+    public static int[] mostlySortedBigArray(int num) {
+        int[] arr = new int[num];
         arr[0] = (int)(Math.random () * 10) + 1;
         for (int a = 1; a < arr.length; a++) {
             arr[a] = arr[a-1] + (int)(Math.random() * 12) - 2;
@@ -221,12 +235,12 @@ public class Team0SortCompetition extends SortCompetition {
     public static void printArr(thejuice[] arr){
         String total = "";
         for(int i = 0; i < arr.length; i++){
-            total += "j"+i+": "+arr[i].howmuchjuice + ", ";
+            total += "j" + i + ": " + arr[i].howmuchjuice + ", ";
         }
         System.out.println(total);
     }
 
-    public int median(int[] arr) {
+    public static int median(int[] arr) {
         int middle = arr.length / 2;
         if (arr.length % 2 == 1) {
             return arr[middle];
