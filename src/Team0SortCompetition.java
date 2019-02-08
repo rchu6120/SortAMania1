@@ -155,10 +155,10 @@ public class Team0SortCompetition extends SortCompetition {
 
         for (int j = min; j <= max- 1; j++)
         {
-            // If current element is smaller than or equal to pivot
+            //If current element is smaller than or equal to pivot
             if (a[j].compareTo(pivot) <= 0)
             {
-                i++; // increment index of smaller element
+                i++; //increment index of smaller element
                 thejuice temp = a[i];
                 a[i] = a[j];
                 a[j] = temp;
@@ -249,12 +249,14 @@ public class Team0SortCompetition extends SortCompetition {
             return (arr[middle] + arr[middle + 1]) / 2;
         }
     }
-    public static thejuice[] randomJuiceArr(int num){
+
+    public static thejuice[] randomJuiceArr(int num) {
         thejuice[] thejuices = new thejuice[num];
         for (int i = 0; i < num; i++){
             thejuices[i] = new thejuice();
         }
         return thejuices;
     }
+
 }
 
