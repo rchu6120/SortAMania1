@@ -25,13 +25,13 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFour(int[][] arr) {
-        mergeSort(arr);
         int[] medianArr = new int[arr.length];
         for (int row = 0; row < arr.length; row++) {
             mergeSort(arr[row]);
             medianArr[row] = median(arr[row]);
         }
         mergeSort(medianArr);
+        mergeSort(arr);
         int median = median(medianArr);
         return median;
     }
@@ -71,8 +71,7 @@ public class Team0SortCompetition extends SortCompetition {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];
                 i++;
-            }
-            else {
+            } else {
                 temp[k] = arr[j];
                 j++;
             }
@@ -98,7 +97,7 @@ public class Team0SortCompetition extends SortCompetition {
         int num = a.length;
         for (int i = 0; i < num - 1; i++) {
             int min = i;
-            for (int j = i+1; j < num; j++)
+            for (int j = i + 1; j < num; j++)
                 if (a[j].compareTo(a[min]) < 0) {
                     min = j;
                 }
@@ -110,16 +109,14 @@ public class Team0SortCompetition extends SortCompetition {
 
     public static int binarySearch(String[] elements, String target) {
         int left = 0;
-        int right = elements.length-1;
-        while (left <= right){
-            int middle = (left+right) / 2;
-            if (target.compareTo(elements[middle]) < 0){
+        int right = elements.length - 1;
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            if (target.compareTo(elements[middle]) < 0) {
                 right = middle - 1;
-            }
-            else if (target.compareTo(elements[middle]) > 0){
+            } else if (target.compareTo(elements[middle]) > 0) {
                 left = middle + 1;
-            }
-            else {
+            } else {
                 return middle;
             }
         }
@@ -131,12 +128,12 @@ public class Team0SortCompetition extends SortCompetition {
         int num = a.length;
         for (int i = 1; i < num; ++i) {
             int max = a[i];
-            int j = i-1;
+            int j = i - 1;
             while (j >= 0 && a[j] > max) {
-                a[j+1] = a[j];
-                j = j-1;
+                a[j + 1] = a[j];
+                j = j - 1;
             }
-            a[j+1] = max;
+            a[j + 1] = max;
         }
     }
 
@@ -164,8 +161,7 @@ public class Team0SortCompetition extends SortCompetition {
             if (median(arr[i]) < median(arr[j])) {
                 temp[k] = arr[i];
                 i++;
-            }
-            else {
+            } else {
                 temp[k] = arr[j];
                 j++;
             }
@@ -210,8 +206,7 @@ public class Team0SortCompetition extends SortCompetition {
             if (arr[i].compareTo(arr[j]) < 0) {
                 temp[k] = arr[i];
                 i++;
-            }
-            else {
+            } else {
                 temp[k] = arr[j];
                 j++;
             }
@@ -232,18 +227,16 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
-    public static int binarySearch(Comparable[] elements, Comparable target){
+    public static int binarySearch(Comparable[] elements, Comparable target) {
         int left = 0;
         int right = elements.length - 1;
-        while (left <= right){
-            int middle = (left+right) / 2;
+        while (left <= right) {
+            int middle = (left + right) / 2;
             if (target.compareTo(elements[middle]) < 0) {
                 right = middle - 1;
-            }
-            else if (target.compareTo(elements[middle]) > 0) {
+            } else if (target.compareTo(elements[middle]) > 0) {
                 left = middle + 1;
-            }
-            else if (target.equals(elements[middle])) {
+            } else if (target.equals(elements[middle])) {
                 return middle;
             }
         }
@@ -262,7 +255,7 @@ public class Team0SortCompetition extends SortCompetition {
     public static int[][] randomTwoDArr(int count) {
         int[][] randomTwoDArray = new int[count][count];
         for (int i = 0; i < randomTwoDArray.length; i++) {
-            for (int j = 0; j < randomTwoDArray[count-1].length; j++) {
+            for (int j = 0; j < randomTwoDArray[count - 1].length; j++) {
                 randomTwoDArray[i][j] = (int) (Math.random() * 10001);
             }
         }
@@ -274,8 +267,8 @@ public class Team0SortCompetition extends SortCompetition {
         while (num > 0) {
             int i = 0;
             String s = "";
-            while(i < length) {
-                char c= (char)((Math.random()*26)+97);
+            while (i < length) {
+                char c = (char) ((Math.random() * 26) + 97);
                 s = s + c;
                 i++;
             }
@@ -287,15 +280,15 @@ public class Team0SortCompetition extends SortCompetition {
 
     public static int[] mostlySortedBigArray(int num) {
         int[] arr = new int[num];
-        arr[0] = (int)(Math.random () * 10) + 1;
+        arr[0] = (int) (Math.random() * 10) + 1;
         for (int a = 1; a < arr.length; a++) {
-            arr[a] = arr[a-1] + (int)(Math.random() * 12) - 2;
+            arr[a] = arr[a - 1] + (int) (Math.random() * 12) - 2;
         }
         return arr;
     }
 
     public static void printArr(int[] arr) {
-        for (int num: arr) {
+        for (int num : arr) {
             System.out.print(num + ", ");
         }
         System.out.println();
@@ -312,14 +305,14 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
-    public static void printArr(String[] arr){
+    public static void printArr(String[] arr) {
         String total = "";
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             total += arr[i] + ", ";
         }
         System.out.println(total);
     }
-    
+
     public static void printArr(thejuice[] arr) {
         String total = "";
         for (int i = 0; i < arr.length; i++) {
@@ -340,11 +333,12 @@ public class Team0SortCompetition extends SortCompetition {
         int middle = arr.length / 2;
         if (arr.length % 2 == 1) {
             return arr[middle];
-        }
-        else {
+        } else {
             return (arr[middle] + arr[middle + 1]) / 2;
         }
     }
 
 }
+
+
 
