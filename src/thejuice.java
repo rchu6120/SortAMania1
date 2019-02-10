@@ -7,7 +7,8 @@ public class thejuice implements Comparable<thejuice> {
     public int compareTo(thejuice other) {
         return this.howmuchjuice - other.howmuchjuice;
     }
-    public boolean equals(thejuice other){
+
+    public boolean equals(thejuice other) {
         return this == other;
     }
 

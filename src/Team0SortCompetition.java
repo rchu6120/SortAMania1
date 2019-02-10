@@ -25,6 +25,7 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFour(int[][] arr) {
+        twoDimensionalArr(arr);
         return 0;
     }
 
@@ -86,7 +87,7 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Two Code
-    public static void selectionSort(String[] a){
+    public static void selectionSort(String[] a) {
         int num = a.length;
         for (int i = 0; i < num - 1; i++) {
             int min = i;
@@ -100,11 +101,11 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
-    public static int binarySearch(String[] elements, String target){
+    public static int binarySearch(String[] elements, String target) {
         int left = 0;
         int right = elements.length-1;
         while (left <= right){
-            int middle = (left+right)/2;
+            int middle = (left+right) / 2;
             if (target.compareTo(elements[middle]) < 0){
                 right = middle - 1;
             }
@@ -132,8 +133,17 @@ public class Team0SortCompetition extends SortCompetition {
         }
     }
 
-    //Challenge Five Code
+    //Challenge Four Code
+    public static void twoDimensionalArr(int[][] arr) {
+        int[] medianArr = new int[arr.length];
+        for (int row = 0; row < arr.length; row++) {
+            mergeSort(arr[row]);
+            medianArr[row] = median(arr[row]);
+        }
+        mergeSort(medianArr);
+    }
 
+    //Challenge Five Code
     public static void mergeSort(Comparable[] arr) {
         int n = arr.length;
         Comparable[] temp = new Comparable[n];
@@ -181,16 +191,16 @@ public class Team0SortCompetition extends SortCompetition {
 
     public static int binarySearch(Comparable[] elements, Comparable target){
         int left = 0;
-        int right = elements.length-1;
+        int right = elements.length - 1;
         while (left <= right){
-            int middle = (left+right)/2;
-            if (target.compareTo(elements[middle]) < 0){
+            int middle = (left+right) / 2;
+            if (target.compareTo(elements[middle]) < 0) {
                 right = middle - 1;
             }
-            else if (target.compareTo(elements[middle]) > 0){
+            else if (target.compareTo(elements[middle]) > 0) {
                 left = middle + 1;
             }
-            else if (target.equals(elements[middle])){
+            else if (target.equals(elements[middle])) {
                 return middle;
             }
         }
@@ -206,12 +216,22 @@ public class Team0SortCompetition extends SortCompetition {
         return randomArr;
     }
 
-    public static String[] randomStringArr(int num, int length){
+    public static int[][] randomTwoDArr(int count) {
+        int[][] randomTwoDArray = new int[count][count];
+        for (int i = 0; i < randomTwoDArray.length; i++) {
+            for (int j = 0; j < randomTwoDArray[count-1].length; j++) {
+                randomTwoDArray[i][j] = (int) (Math.random() * 10001);
+            }
+        }
+        return randomTwoDArray;
+    }
+
+    public static String[] randomStringArr(int num, int length) {
         String[] arr = new String[num];
         while (num > 0) {
             int i = 0;
             String s = "";
-            while(i < length){
+            while(i < length) {
                 char c= (char)((Math.random()*26)+97);
                 s = s + c;
                 i++;
@@ -238,6 +258,17 @@ public class Team0SortCompetition extends SortCompetition {
         System.out.println();
     }
 
+    public static void printArr(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            int median = median(arr[i]);
+            System.out.print("Median: " + median);
+            System.out.println("");
+        }
+    }
+
     public static void printArr(String[] arr){
         String total = "";
         for(int i = 0; i < arr.length; i++){
@@ -246,12 +277,20 @@ public class Team0SortCompetition extends SortCompetition {
         System.out.println(total);
     }
     
-    public static void printArr(thejuice[] arr){
+    public static void printArr(thejuice[] arr) {
         String total = "";
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             total += "j" + i + ": " + arr[i].howmuchjuice + ", ";
         }
         System.out.println(total);
+    }
+
+    public static thejuice[] randomJuiceArr(int num) {
+        thejuice[] thejuices = new thejuice[num];
+        for (int i = 0; i < num; i++) {
+            thejuices[i] = new thejuice();
+        }
+        return thejuices;
     }
 
     public static int median(int[] arr) {
@@ -262,14 +301,6 @@ public class Team0SortCompetition extends SortCompetition {
         else {
             return (arr[middle] + arr[middle + 1]) / 2;
         }
-    }
-
-    public static thejuice[] randomJuiceArr(int num) {
-        thejuice[] thejuices = new thejuice[num];
-        for (int i = 0; i < num; i++){
-            thejuices[i] = new thejuice();
-        }
-        return thejuices;
     }
 
 }
