@@ -25,8 +25,15 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFour(int[][] arr) {
-        twoDimensionalArr(arr);
-        return 0;
+        mergeSort(arr);
+        int[] medianArr = new int[arr.length];
+        for (int row = 0; row < arr.length; row++) {
+            mergeSort(arr[row]);
+            medianArr[row] = median(arr[row]);
+        }
+        mergeSort(medianArr);
+        int median = median(medianArr);
+        return median;
     }
 
     @Override
@@ -134,13 +141,49 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Challenge Four Code
-    public static void twoDimensionalArr(int[][] arr) {
-        int[] medianArr = new int[arr.length];
-        for (int row = 0; row < arr.length; row++) {
-            mergeSort(arr[row]);
-            medianArr[row] = median(arr[row]);
+    public static void mergeSort(int[][] arr) {
+        int n = arr.length;
+        int[][] temp = new int[n][arr[0].length];
+        mergeSortHelper(arr, 0, n - 1, temp);
+    }
+
+    public static void mergeSortHelper(int[][] arr, int from, int to, int[][] temp) {
+        if (from < to) {
+            int mid = (from + to) / 2;
+            mergeSortHelper(arr, from, mid, temp);
+            mergeSortHelper(arr, mid + 1, to, temp);
+            merge(arr, from, mid, to, temp);
         }
-        mergeSort(medianArr);
+    }
+
+    public static void merge(int[][] arr, int from, int mid, int to, int[][] temp) {
+        int i = from;
+        int j = mid + 1;
+        int k = from;
+        while (i <= mid && j <= to) {
+            if (median(arr[i]) < median(arr[j])) {
+                temp[k] = arr[i];
+                i++;
+            }
+            else {
+                temp[k] = arr[j];
+                j++;
+            }
+            k++;
+        }
+        while (i <= mid) {
+            temp[k] = arr[i];
+            i++;
+            k++;
+        }
+        while (j <= to) {
+            temp[k] = arr[j];
+            j++;
+            k++;
+        }
+        for (k = from; k <= to; k++) {
+            arr[k] = temp[k];
+        }
     }
 
     //Challenge Five Code
