@@ -1,5 +1,6 @@
 public class SortAManiaRunner {
     public static void main(String[] args) {
+
         Team0SortCompetition team0 = new Team0SortCompetition(); //create an instance of your class
         int[] randIntArr = Team0SortCompetition.randomIntsArr(10000); //initialize a random int array
         String[] randStringArr = Team0SortCompetition.randomStringArr(10000, 5); //initialize a random string array
@@ -97,44 +98,5 @@ public class SortAManiaRunner {
         System.out.println();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
