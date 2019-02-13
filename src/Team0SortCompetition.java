@@ -334,7 +334,7 @@ public class Team0SortCompetition extends SortCompetition {
         if (arr.length % 2 == 1) {
             return arr[middle];
         } else {
-            return (arr[middle] + arr[middle + 1]) / 2;
+            return (arr[middle] + arr[middle - 1]) / 2;
         }
     }
 

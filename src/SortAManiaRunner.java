@@ -5,8 +5,8 @@ public class SortAManiaRunner {
         int[] randIntArr = Team0SortCompetition.randomIntsArr(10000); //initialize a random int array
         String[] randStringArr = Team0SortCompetition.randomStringArr(10000, 5); //initialize a random string array
         int[] mostlySorted = Team0SortCompetition.mostlySortedBigArray(100); //initialize a mostly sorted big array
-        int[][] randomTwoDArr = Team0SortCompetition.randomTwoDArr(100); //initialize a two dimensional array
-        thejuice[] thejuices = Team0SortCompetition.randomJuiceArr(10000); //initialize an array of objects
+        int[][] randomTwoDArr = Team0SortCompetition.randomTwoDArr(6); //initialize a two dimensional array
+        thejuice[] thejuices = Team0SortCompetition.randomJuiceArr(100); //initialize an array of objects
         thejuice lookforjuice = thejuices[(int) (Math.random() * thejuices.length)];
 
 
@@ -84,15 +84,17 @@ public class SortAManiaRunner {
 
 
 
+
         System.out.println("Challenge Five");
         System.out.println("Unsorted");
         Team0SortCompetition.printArr(thejuices); //print out the unsorted array
 
         time = System.currentTimeMillis(); //start the timer
-        System.out.println("Looking for " + lookforjuice.howmuchjuice + " juice level: " + team0.challengeFive(thejuices, lookforjuice)); //run your challenge five code
+        team0.challengeFive(thejuices, lookforjuice);
         time = System.currentTimeMillis() - time; //stop the timer
         System.out.println("Sorted");
         Team0SortCompetition.printArr(thejuices); //check if the array was sorted correctly
+        System.out.println("Looking for " + lookforjuice.howmuchjuice + " juice level: " + team0.challengeFive(thejuices, lookforjuice)); //run your challenge five code
 
         System.out.println("Challenge Five Time Taken: " + time * 0.001 + " Seconds"); //print the time
         System.out.println();
